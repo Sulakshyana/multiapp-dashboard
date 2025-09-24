@@ -2,122 +2,399 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background: #f0f2f5;
+  background: #f5f7fa;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  line-height: 1.6;
+  color: #333;
 }
 
-/* Navbar */
-nav {
-  background: #1e2a78;
+/* Home Page Styling */
+#home {
+  max-width: 900px;
+  margin: 3rem auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 3rem;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+#home h1 {
+  color: #2c3e50;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  color: #6c757d;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.journey-text {
+  color: #495057;
+  font-size: 1rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+/* Project Cards */
+.app-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  padding: 2rem;
+  border-radius: 10px;
+  background: #fafbfc;
+  border: 1px solid #e9ecef;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: #6c5ce7;
+}
+
+.project-icon {
+  font-size: 2.8rem;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.card h3 {
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-features {
+  list-style: none;
+  margin: 1.5rem 0;
+}
+
+.project-features li {
+  padding: 0.4rem 0;
+  color: #495057;
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.project-features li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #6c5ce7;
+  font-weight: bold;
+}
+
+.launch-btn {
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.launch-btn:hover {
+  background: #5a4fcf;
+  transform: translateY(-1px);
+}
+
+/* Footer Links */
+.footer-links {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.footer-links p {
+  color: #6c757d;
+  margin-bottom: 1rem;
+}
+
+.social-links {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0;
+  gap: 1.5rem;
 }
 
-nav button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-weight: 600;
-  font-size: 1rem;
+.social-links a {
+  color: #6c5ce7;
+  text-decoration: none;
+  font-weight: 500;
   padding: 0.5rem 1rem;
-  cursor: pointer;
-  border-bottom: 3px solid transparent;
-  transition: border-color 0.3s;
+  border-radius: 6px;
+  transition: all 0.3s ease;
 }
 
-nav button.active,
-nav button:hover {
-  border-color: #ffb400;
+.social-links a:hover {
+  background: #6c5ce7;
+  color: white;
 }
 
-.active {
-  display: block;
-}
-
-/* Container for apps */
+/* App Container Styling */
 main {
-  flex: 1;
-  max-width: 600px;
-  margin: 2rem auto;
+  max-width: 650px;
+  margin: 2.5rem auto;
   background: white;
-  border-radius: 8px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
 }
 
-/* Hide all apps by default */
+main h2 {
+  color: #2c3e50;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #6c5ce7;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+/* App Visibility */
 .section-app {
   display: none;
 }
 
-/* Show active app */
 .section-app.active {
   display: block;
 }
 
-/* Expense Tracker styles */
+/* Input Styling */
 .input-container {
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .input-container input {
   flex: 1;
-  padding: 0.5rem;
+  min-width: 200px;
+  padding: 0.8rem;
   font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: #6c5ce7;
 }
 
 .input-container button {
-  padding: 0 1rem;
-  background: #1e2a78;
+  padding: 0.8rem 1.5rem;
+  background: #6c5ce7;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-weight: 600;
+  border-radius: 6px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
 .input-container button:hover {
-  background: #14356a;
+  background: #5a4fcf;
 }
 
-#expense-list {
+/* List Styling */
+#expense-list,
+#todo-list {
   list-style-type: none;
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
-#expense-list li {
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
-  font-size: 1rem;
+#expense-list li,
+#todo-list li {
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 3px solid #6c5ce7;
+}
+
+#todo-list {
+  display: flex;
+  flex-direction: column;
+}
+
+#todo-list li span {
+  flex: 1;
 }
 
 #total-expense {
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 600;
+  font-size: 1.2rem;
   text-align: right;
-  color: #1e2a78;
+  color: #2c3e50;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 2px solid #e9ecef;
 }
 
-.placeholder {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #666;
-  padding: 2rem;
-  border: 2px dashed #ccc;
+/* Delete Button */
+.delete-todo-btn,
+.edit-todo-btn {
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  margin-left: 0.8rem;
+  transition: background-color 0.3s ease;
+}
+
+.delete-todo-btn {
+  background: #e74c3c;
+}
+
+.edit-todo-btn {
+  background: goldenrod;
+}
+
+.delete-btn:hover {
+  background: #c0392b;
+}
+
+/* Todo Specific */
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.todo-item input[type="checkbox"] {
+  transform: scale(1.1);
+  accent-color: #6c5ce7;
+}
+
+/* Weather App */
+#weather-info {
+  background: #f8f9fa;
   border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  text-align: center;
+  border: 2px solid #e9ecef;
+}
+
+#weather-info h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+#weather-info p {
+  color: #495057;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+#error-msg {
+  color: #e74c3c;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Session Info */
+.session-info {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #1565c0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #home,
+  main {
+    margin: 1.5rem;
+    padding: 2rem;
+  }
+
+  .app-cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .input-container {
+    flex-direction: column;
+  }
+
+  .input-container input,
+  .input-container button {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .social-links {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
