@@ -7,34 +7,153 @@
     <title>Multi-App Dashboard</title>
   </head>
   <body>
-    <nav>
-      <button class="tab-btn active" data-target="expense-app">
-        Expense Tracker
-      </button>
-      <button class="tab-btn" data-target="weather-app">Weather</button>
-      <button class="tab-btn" data-target="todo-app">To-Do</button>
-    </nav>
+    <section id="home" class="section-app active">
+      <div class="hero-section">
+        <h1>Welcome to My Development Journey</h1>
+        <p class="intro">
+          During my learning journey, I've built these three practical web
+          applications to strengthen my skills in HTML, CSS, and JavaScript.
+        </p>
+        <p class="journey-text">
+          Each project focuses on different aspects of web development - from
+          DOM manipulation to local storage, from responsive design to user
+          interaction patterns.
+        </p>
+      </div>
+
+      <div class="app-cards">
+        <div class="card" data-target="expense-app">
+          <span class="project-icon">💰</span>
+          <h3>Expense Tracker</h3>
+          <p>
+            A simple yet effective tool to track daily expenses and manage your
+            budget. Built with vanilla JavaScript and focuses on real-time
+            calculations.
+          </p>
+          <ul class="project-features">
+            <li>Add and categorize expenses instantly</li>
+            <li>Real-time total calculation</li>
+            <li>Delete unwanted entries</li>
+            <li>Clean, minimal interface</li>
+          </ul>
+          <button class="launch-btn">Launch App</button>
+        </div>
+
+        <div class="card" data-target="weather-app">
+          <span class="project-icon">🌤️</span>
+          <h3>Weather App</h3>
+          <p>
+            Get weather information for different cities. This project
+            demonstrates API-like functionality with mock data and error
+            handling.
+          </p>
+          <ul class="project-features">
+            <li>City-based weather search</li>
+            <li>Temperature and weather descriptions</li>
+            <li>Error handling for invalid cities</li>
+            <li>Responsive weather display</li>
+          </ul>
+          <button class="launch-btn">Launch App</button>
+        </div>
+
+        <div class="card" data-target="todo-app">
+          <span class="project-icon">✅</span>
+          <h3>To-Do Manager</h3>
+          <p>
+            A productivity app to manage daily tasks with persistent storage.
+            Demonstrates local storage implementation and task state management.
+          </p>
+          <ul class="project-features">
+            <li>Add and organize tasks</li>
+            <li>Mark tasks as complete/incomplete</li>
+            <li>Delete completed tasks</li>
+            <li>Session persistence (saves on reload)</li>
+          </ul>
+          <button class="launch-btn">Launch App</button>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <p>Connect with me and explore more of my work:</p>
+        <div class="social-links">
+          <a href="https://github.com/Sulakshyana" target="_blank"
+            >GitHub Profile</a
+          >
+          <a
+            href="https://www.linkedin.com/in/sulakshyana-ghimire-b03126282/"
+            target="_blank"
+            >LinkedIn Profile</a
+          >
+        </div>
+      </div>
+    </section>
 
     <main>
       <!-- Expense Tracker App -->
-      <section id="expense-app" class="section-app active">
-        <h2>Expense Tracker</h2>
+      <section id="expense-app" class="section-app">
+        <button class="back-btn">← Back to Home</button>
+        <h2>💰 Expense Tracker</h2>
         <div class="input-container">
           <input
             type="text"
             id="expense-name-input"
-            placeholder="Name of the Expense"
+            placeholder="What did you spend on?"
           />
           <input
             type="number"
             id="expense-amount-input"
-            placeholder="Amount spent"
+            placeholder="Amount (Rs)"
           />
-          <button id="add-expense-btn">Add</button>
+          <button id="add-expense-btn">Add Expense</button>
         </div>
         <ul id="expense-list"></ul>
-        <p id="total-expense">Total: $0</p>
+        <p id="total-expense">Total: Rs 0</p>
+      </section>
+
+      <!-- Weather App -->
+      <section id="weather-app" class="section-app">
+        <button class="back-btn">← Back to Home</button>
+        <h2>🌤️ Weather App</h2>
+        <div class="input-container">
+          <input
+            type="text"
+            id="city-input"
+            placeholder="Enter city name (try: kathmandu, london, tokyo)"
+          />
+          <button id="get-weather-btn">Get Weather</button>
+        </div>
+        <div id="weather-info">
+          <h3 id="city-name"></h3>
+          <p id="weather"></p>
+          <p id="description"></p>
+        </div>
+        <p id="error-msg" class="hidden">
+          City not found. Try: Kathmandu, London, Tokyo, New York, or Paris
+        </p>
+      </section>
+
+      <!-- To-Do App -->
+      <section id="todo-app" class="section-app">
+        <button class="back-btn">← Back to Home</button>
+        <h2>✅ To-Do Manager</h2>
+        <div class="session-info">
+          📌 Your tasks are automatically saved and will persist even after page
+          reload.
+        </div>
+        <div class="input-container">
+          <input
+            type="text"
+            placeholder="What needs to be done?"
+            id="todo-input"
+          />
+          <button id="add-task-btn">Add Task</button>
+        </div>
+        <ul id="todo-list"></ul>
       </section>
     </main>
+    <script src="./javascript/script.js" defer></script>
+    <script src="./javascript/expenseTracker.js" defer></script>
+    <script src="./javascript/weather.js" defer></script>
+    <script src="./javascript/todo.js" defer></script>
   </body>
 </html>
